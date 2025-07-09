@@ -1,12 +1,6 @@
-//
-//  TitleAndDescriptionDonate.swift
-//  TagFixer
-//
-//  Created by Bobbi R. on 9.07.25.
-//
 import SwiftUI
 
-struct TitleAndDescriptionDonate: View {
+struct SupportTitle: View {
     var body: some View {
         Text("Support the project")
             .font(.title2)

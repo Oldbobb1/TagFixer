@@ -1,11 +1,5 @@
-//
-//  MP3File.swift
-//  TagFixer
-//
-//  Created by Bobbi R. on 8.07.25.
-//
-import SwiftUI
 import ID3TagEditor
+import SwiftUI
 
 class AudioTrack: ObservableObject, Identifiable {
     let id = UUID()
@@ -15,12 +9,13 @@ class AudioTrack: ObservableObject, Identifiable {
     @Published var fileName: String
     @Published var album: String
     @Published var genre: String
-    init(url: URL,
-         title: String,
-         artist: String,
-         fileName: String,
-         album: String,
-         genre: String,
+    init(
+        url: URL,
+        title: String,
+        artist: String,
+        fileName: String,
+        album: String,
+        genre: String,
     ) {
         self.url = url
         self.title = title

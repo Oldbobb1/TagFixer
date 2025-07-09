@@ -1,9 +1,3 @@
-//
-//  TagFixerApp.swift
-//  TagFixer
-//
-//  Created by Bobbi R. on 7.07.25.
-//
 import SwiftUI
 
 @main

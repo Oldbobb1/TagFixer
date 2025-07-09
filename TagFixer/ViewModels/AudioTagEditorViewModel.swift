@@ -1,9 +1,3 @@
-//
-//  FileManagerModel.swift
-//  TagFixer
-//
-//  Created by Bobbi R. on 8.07.25.
-//
 import AppKit
 import ID3TagEditor
 
@@ -34,11 +28,11 @@ class AudioTagEditorViewModel: ObservableObject {
                     )
                     newFiles.append(file)
                 } catch {
-                    print("Ошибка чтения тега файла \(url.lastPathComponent): \(error)")
+                    print("Error")
                 }
             }
             DispatchQueue.main.async {
-                self.mp3Files.append(contentsOf: newFiles)  // Добавляем к уже существующим
+                self.mp3Files.append(contentsOf: newFiles)
             }
         }
     }
@@ -46,7 +40,6 @@ class AudioTagEditorViewModel: ObservableObject {
         for file in mp3Files {
             do {
                 guard let tag = try? id3TagEditor.read(from: file.url.path) else {
-                    print("⚠️ Невозможно прочитать тег у: \(file.fileName)")
                     continue
                 }
                 tag.frames[.title] = ID3FrameWithStringContent(content: file.title)
@@ -56,23 +49,16 @@ class AudioTagEditorViewModel: ObservableObject {
                 let panel = NSSavePanel()
                 panel.allowedContentTypes = [.audio]
                 panel.nameFieldStringValue = file.fileName
-                panel.title = "Сохранить изменённый файл"
                 if panel.runModal() == .OK, let saveURL = panel.url {
-                    // Чтение оригинального MP3 как Data
                     let originalData = try Data(contentsOf: file.url)
-                    // Создаём новые данные тега
                     let newData = try id3TagEditor.write(tag: tag, mp3: originalData)
-                    // Записываем в выбранное место
                     try newData.write(to: saveURL)
-                    print("✅ Файл сохранён: \(saveURL.lastPathComponent)")
-                    // Удаляем файл из TagEditor после успешного сохранения
                     if let index = mp3Files.firstIndex(where: { $0.id == file.id }) {
                         mp3Files.remove(at: index)
-                        print("🗑 Файл удалён из редактора: \(file.fileName)")
                     }
                 }
             } catch {
-                print("❌ Ошибка при сохранении \(file.fileName): \(error)")
+                print("Error")
             }
         }
     }

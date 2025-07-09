@@ -1,9 +1,3 @@
-//
-//  ColumnHeaders.swift
-//  TagFixer
-//
-//  Created by Bobbi R. on 8.07.25.
-//
 import SwiftUI
 
 struct TrackListHeader: View {
@@ -19,7 +13,4 @@ struct TrackListHeader: View {
         .padding(.leading)
         .padding(.trailing)
     }
-}
-#Preview {
-    TrackListHeader()
 }

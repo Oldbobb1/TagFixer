@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct ToolbarSuppotrButton: View {
+struct SupportButton: View {
     @State private var donate = false
     var body: some View {
         Button("❤️Support") {
@@ -14,7 +14,7 @@ struct ToolbarSuppotrButton: View {
         }
         .padding(.trailing)
         .sheet(isPresented: $donate){
-            DonatePlaceholderView()
+            DonateView()
         }
     }
 }

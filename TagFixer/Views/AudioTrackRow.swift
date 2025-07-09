@@ -1,9 +1,3 @@
-//
-//  AudioTagEditor 2.swift
-//  TagFixer
-//
-//  Created by Bobbi R. on 8.07.25.
-//
 import SwiftUI
 
 struct AudioTrackRow: View {
