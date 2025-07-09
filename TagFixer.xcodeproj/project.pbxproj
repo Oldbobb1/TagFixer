@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C48CADAF2E1D882E0078B377 /* ID3TagEditor in Frameworks */ = {isa = PBXBuildFile; productRef = C48CADAE2E1D882E0078B377 /* ID3TagEditor */; };
+		C48CAEFB2E1E6E410078B377 /* ID3TagEditor in Frameworks */ = {isa = PBXBuildFile; productRef = C48CAEFA2E1E6E410078B377 /* ID3TagEditor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C48CADAF2E1D882E0078B377 /* ID3TagEditor in Frameworks */,
+				C48CAEFB2E1E6E410078B377 /* ID3TagEditor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +83,7 @@
 			);
 			name = TagFixer;
 			packageProductDependencies = (
-				C48CADAE2E1D882E0078B377 /* ID3TagEditor */,
+				C48CAEFA2E1E6E410078B377 /* ID3TagEditor */,
 			);
 			productName = TagFixer;
 			productReference = C4E362FB2E1C5A9300586B58 /* TagFixer.app */;
@@ -114,7 +114,7 @@
 			mainGroup = C4E362F22E1C5A9300586B58;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				C48CADAD2E1D882E0078B377 /* XCRemoteSwiftPackageReference "ID3TagEditor" */,
+				C48CAEF92E1E6E410078B377 /* XCRemoteSwiftPackageReference "ID3TagEditor" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C4E362FC2E1C5A9300586B58 /* Products */;
@@ -260,6 +260,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
@@ -349,7 +350,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C48CADAD2E1D882E0078B377 /* XCRemoteSwiftPackageReference "ID3TagEditor" */ = {
+		C48CAEF92E1E6E410078B377 /* XCRemoteSwiftPackageReference "ID3TagEditor" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/chicio/ID3TagEditor";
 			requirement = {
@@ -360,9 +361,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C48CADAE2E1D882E0078B377 /* ID3TagEditor */ = {
+		C48CAEFA2E1E6E410078B377 /* ID3TagEditor */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C48CADAD2E1D882E0078B377 /* XCRemoteSwiftPackageReference "ID3TagEditor" */;
+			package = C48CAEF92E1E6E410078B377 /* XCRemoteSwiftPackageReference "ID3TagEditor" */;
 			productName = ID3TagEditor;
 		};
 /* End XCSwiftPackageProductDependency section */
