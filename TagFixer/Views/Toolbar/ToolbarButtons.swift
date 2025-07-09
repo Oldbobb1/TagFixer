@@ -13,18 +13,12 @@ struct ToolbarButtons: View {
     }
     var body: some View {
         HStack {
-            Button(action: {
-                tagEditorModel.importTracks()
-            }){
-                Image(systemName: "plus")
-            }
-            .buttonStyle(.borderedProminent)
-            Button(action: {
-                tagEditorModel.saveEditedTracks()
-            }){
-                Image(systemName: "square.and.arrow.down.fill")
-            }
-            .buttonStyle(.bordered)
+            ToolbarImportButton(tagEditorModel)
+            ToolbarSaveButton(tagEditorModel)
+            Spacer()
+            Text("quantity: \(tagEditorModel.mp3Files.count)")
+            Spacer()
+            ToolbarSuppotrButton()
         }
         .padding(.top)
         .padding(.leading)

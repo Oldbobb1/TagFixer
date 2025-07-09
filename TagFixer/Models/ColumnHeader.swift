@@ -12,7 +12,4 @@ enum ColumnHeader: String, CaseIterable {
     case fileName = "File Name"
     case album = "Album"
     case genre = "Genre"
-//    case year = "Year"
-    case albumArtist = "Album Artist"
-//    case comment = "Comment"
 }

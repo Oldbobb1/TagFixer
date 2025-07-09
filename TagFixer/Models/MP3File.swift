@@ -5,6 +5,7 @@
 //  Created by Bobbi R. on 8.07.25.
 //
 import SwiftUI
+import ID3TagEditor
 
 class AudioTrack: ObservableObject, Identifiable {
     let id = UUID()
@@ -14,16 +15,12 @@ class AudioTrack: ObservableObject, Identifiable {
     @Published var fileName: String
     @Published var album: String
     @Published var genre: String
-    @Published var albumArtist: String
-//    @Published var comment: String
     init(url: URL,
          title: String,
          artist: String,
          fileName: String,
          album: String,
          genre: String,
-         albumArtist: String,
-//         comment: String
     ) {
         self.url = url
         self.title = title
@@ -31,8 +28,5 @@ class AudioTrack: ObservableObject, Identifiable {
         self.fileName = fileName
         self.album = album
         self.genre = genre
-        self.albumArtist = albumArtist
-//        self.comment = comment
     }
 }
-

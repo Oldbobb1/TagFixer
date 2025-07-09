@@ -16,7 +16,6 @@ class AudioTagEditorViewModel: ObservableObject {
         panel.allowsMultipleSelection = true
         panel.allowedContentTypes = [.audio]
         if panel.runModal() == .OK {
-            let id3TagEditor = ID3TagEditor()
             var newFiles: [AudioTrack] = []
             for url in panel.urls {
                 do {
@@ -24,16 +23,14 @@ class AudioTagEditorViewModel: ObservableObject {
                     let title = (id3Tag?.frames[.title] as? ID3FrameWithStringContent)?.content ?? ""
                     let artist = (id3Tag?.frames[.artist] as? ID3FrameWithStringContent)?.content ?? ""
                     let album = (id3Tag?.frames[.album] as? ID3FrameWithStringContent)?.content ?? ""
-                    let genre = (id3Tag?.frames[.genre] as? ID3FrameWithStringContent)?.content ?? ""
-                    let albumArtist = (id3Tag?.frames[.albumArtist] as? ID3FrameWithStringContent)?.content ?? ""
+                    let genre = (id3Tag?.frames[.genre] as? ID3FrameGenre)?.description ?? ""
                     let file = AudioTrack(
                         url: url,
                         title: title,
                         artist: artist,
                         fileName: url.lastPathComponent,
                         album: album,
-                        genre: genre,
-                        albumArtist: albumArtist
+                        genre: genre
                     )
                     newFiles.append(file)
                 } catch {
@@ -46,7 +43,6 @@ class AudioTagEditorViewModel: ObservableObject {
         }
     }
     func saveEditedTracks() {
-        let id3TagEditor = ID3TagEditor()
         for file in mp3Files {
             do {
                 guard let tag = try? id3TagEditor.read(from: file.url.path) else {
@@ -56,8 +52,7 @@ class AudioTagEditorViewModel: ObservableObject {
                 tag.frames[.title] = ID3FrameWithStringContent(content: file.title)
                 tag.frames[.artist] = ID3FrameWithStringContent(content: file.artist)
                 tag.frames[.album] = ID3FrameWithStringContent(content: file.album)
-                tag.frames[.genre] = ID3FrameWithStringContent(content: file.genre)
-                tag.frames[.albumArtist] = ID3FrameWithStringContent(content: file.albumArtist)
+                tag.frames[.genre] = ID3FrameGenre(genre: nil, description: file.genre)
                 let panel = NSSavePanel()
                 panel.allowedContentTypes = [.audio]
                 panel.nameFieldStringValue = file.fileName
@@ -70,6 +65,11 @@ class AudioTagEditorViewModel: ObservableObject {
                     // Записываем в выбранное место
                     try newData.write(to: saveURL)
                     print("✅ Файл сохранён: \(saveURL.lastPathComponent)")
+                    // Удаляем файл из TagEditor после успешного сохранения
+                    if let index = mp3Files.firstIndex(where: { $0.id == file.id }) {
+                        mp3Files.remove(at: index)
+                        print("🗑 Файл удалён из редактора: \(file.fileName)")
+                    }
                 }
             } catch {
                 print("❌ Ошибка при сохранении \(file.fileName): \(error)")
