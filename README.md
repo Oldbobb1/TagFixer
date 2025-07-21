@@ -9,14 +9,11 @@ Simple. Fast. No frills.
   - file name 
   - album 
   - genre 
-  - album artist
 - Saving changes with one click
 - Full local operation without sending data to the network
 ## 🧰 Technologies
 - Swift
-- ID3TagEditor
-- AppKit / SwiftUI
+- SwiftUI
+- swift-format: for code styling
 - Xcode (macOS target)
-## 📄 License
-MIT is free for personal and commercial use.<br>
-Author: [OldBobbi](https://github.com/Oldbobb1)
+- ID3TagEditor

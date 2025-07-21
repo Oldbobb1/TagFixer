@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct AudioTagEditor: View {
-    @StateObject var tagEditorModel = AudioTagEditorViewModel()
+    @StateObject private var tagEditorModel = AudioTagEditorViewModel()
+
     var body: some View {
         VStack {
             AudioEditorToolbar(tagEditorModel)

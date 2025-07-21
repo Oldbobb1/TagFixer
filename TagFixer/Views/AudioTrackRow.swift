@@ -2,9 +2,11 @@ import SwiftUI
 
 struct AudioTrackRow: View {
     @ObservedObject var audioTrack: AudioTrack
+
     init(_ audioTrack: AudioTrack) {
         self.audioTrack = audioTrack
     }
+
     var body: some View {
         HStack {
             TextField("Title", text: $audioTrack.title)
