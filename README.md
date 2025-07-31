@@ -4,9 +4,9 @@ Simple. Fast. No frills.
 
 ## 📸 Screenshots
 <!-- <p align="center"> -->
-  <img src="preview/preview1.png" alt="Light Mode" height="200" width="350"/><br>
-    <img src="preview/preview2.png" alt="Light Mode Result" height="200" width="350"/><br>
-  <img src="preview/previw3.png" alt="Dark Mode" height="200" width="350"/>
+  <img src="preview/preview1.png" alt="Light Mode" height="440" width="640"/><br>
+    <img src="preview/preview2.png" alt="Light Mode Result" height="440" width="640"/><br>
+  <img src="preview/previw3.png" alt="Dark Mode" height="440" width="640"/>
 <!-- </p> -->
 
 ## 🔧 Opportunities
